@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OptiCrop — Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12201A; --surface:#1B2E23; --amber:#C9A75E;
+    --sage:#8CA88A; --text:#F4F1E8; --muted:#9FB09B; --rule:#2E4736;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+  background:
+    linear-gradient(rgba(18,32,26,0.55), rgba(18,32,26,0.68)),
+    url("https://static.stacker.com/s3fs-public/styles/slide_desktop/s3/00teachinaP2P4_0.png")
+    center/cover fixed no-repeat;
+  color:var(--text);
+  font-family:'Space Grotesk', sans-serif;
+  min-height:100vh;
+}
+  nav{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 48px;
+    border-bottom:1px solid var(--rule);
+  }
+  .logo{ font-family:'Fraunces', serif; font-weight:700; font-size:1.3rem; }
+  .logo em{ color:var(--amber); font-style:normal; }
+  .nav-links{ display:flex; gap:32px; }
+  .nav-links a{
+    color:var(--muted); text-decoration:none; font-size:0.9rem;
+    font-weight:500; transition:color 0.2s ease;
+  }
+  .nav-links a:hover, .nav-links a.active{ color:var(--amber); }
+
+  .hero{
+    text-align:center;
+    padding:110px 24px 80px;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--amber); margin-bottom:20px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:4.2rem;
+    line-height:1.02;
+  }
+  h1 em{ color:var(--amber); font-style:normal; }
+  .hero p{
+    color:var(--muted);
+    max-width:46ch;
+    margin:24px auto 0;
+    font-size:1.02rem;
+    line-height:1.6;
+  }
+  .cta{
+    display:inline-block;
+    margin-top:38px;
+    padding:15px 34px;
+    background:var(--amber);
+    color:#1B2E23;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .cta:hover{ transform:translateY(-2px); box-shadow:0 10px 26px rgba(201,167,94,0.25); }
+
+  .field-strip{
+    display:flex; justify-content:center; gap:0;
+    flex-wrap:wrap;
+    margin-top:70px;
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+  }
+  .field-strip div{
+    flex:1; min-width:130px;
+    text-align:center;
+    padding:22px 10px;
+    border-right:1px solid var(--rule);
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--sage);
+  }
+  .field-strip div:last-child{ border-right:none; }
+
+  @media (max-width:720px){
+    h1{ font-size:2.6rem; }
+    nav{ padding:18px 24px; flex-direction:column; gap:14px; }
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <div class="logo">opti<em>crop</em></div>
+    <div class="nav-links">
+      <a href="/" class="active">Home</a>
+      <a href="/about">About</a>
+      <a href="/findyourcrop">Find Your Crop</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="eyebrow">Smart Agricultural Production Optimization Engine</div>
+    <h1>Know what your<br><em>land</em> wants to grow.</h1>
+    <p>OptiCrop reads your soil's nutrient levels and local climate, then cross-references them against known crop profiles to recommend the best fit — built on real agricultural data, not guesswork.</p>
+    <a href="/findyourcrop" class="cta">Find Your Crop →</a>
+  </section>
+
+  <div class="field-strip">
+    <div>Nitrogen</div>
+    <div>Phosphorous</div>
+    <div>Potassium</div>
+    <div>Temperature</div>
+    <div>Humidity</div>
+    <div>pH Level</div>
+    <div>Rainfall</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OptiCrop — Find Your Crop</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>:root{
+  --bg:#12201A; --surface:#1B2E23; --surface2:#22392C; --amber:#C9A75E;
+  --sage:#8CA88A; --text:#F4F1E8; --muted:#9FB09B; --rule:#2E4736;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html, body{ height:100%; }
+body{
+  background:
+    linear-gradient(rgba(18,32,26,0.65), rgba(18,32,26,0.75)),
+    url("https://png.pngtree.com/background/20250614/original/pngtree-sunrise-over-lush-green-farm-field-rows-stock-photo-picture-image_15742485.jpg") center/cover fixed no-repeat;
+  color:var(--text);
+  font-family:'Space Grotesk', sans-serif;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+nav{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:22px 48px; border-bottom:1px solid var(--rule);
+}
+.logo{ font-family:'Fraunces', serif; font-weight:700; font-size:1.3rem; }
+.logo em{ color:var(--amber); font-style:normal; }
+.nav-links{ display:flex; gap:32px; }
+.nav-links a{ color:var(--muted); text-decoration:none; font-size:0.9rem; font-weight:500; }
+.nav-links a:hover, .nav-links a.active{ color:var(--amber); }
+
+.page{
+  flex:1;
+  display:flex; align-items:center; justify-content:center;
+  padding:0;
+}
+.wrap{
+  display:grid; grid-template-columns:0.85fr 1.15fr;
+  max-width:920px; width:100%;
+  background:rgba(27,46,35,0.75);
+  border-radius:20px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.45);
+  border:1px solid rgba(201,167,94,0.12);
+}
+.intro{
+  padding:48px 36px;
+  background:linear-gradient(165deg, var(--surface2), var(--bg));
+  border-right:1px solid var(--rule);
+}
+.eyebrow{
+  font-family:'JetBrains Mono', monospace; font-size:11px;
+  letter-spacing:0.14em; text-transform:uppercase; color:var(--amber); margin-bottom:18px;
+}
+h1{ font-family:'Fraunces', serif; font-weight:600; font-size:2.4rem; line-height:1.05; }
+.desc{ color:var(--muted); font-size:0.92rem; line-height:1.6; margin-top:18px; max-width:30ch; }
+
+form{ padding:44px 40px; }
+.grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px 20px; }
+.field.full{ grid-column:1 / -1; }
+.field label{
+  display:flex; justify-content:space-between;
+  font-family:'JetBrains Mono', monospace; font-size:10.5px;
+  letter-spacing:0.08em; text-transform:uppercase; color:#B8CDB4; margin-bottom:8px;
+}
+.field label span{ color:var(--muted); text-transform:none; letter-spacing:0; }
+.field input{
+  width:100%; background:transparent; border:none;
+  border-bottom:1.5px solid var(--rule); color:var(--text);
+  font-family:'JetBrains Mono', monospace; font-size:1.15rem;
+  padding:6px 2px 10px 2px; outline:none; transition:border-color 0.25s ease;
+}
+.field input:focus{ border-color:var(--amber); }
+.field input::placeholder{ color:#6B8266; }
+button{
+  margin-top:36px; width:100%; padding:15px;
+  background:var(--amber); color:#1B2E23; border:none; border-radius:10px;
+  font-weight:600; font-size:0.95rem; cursor:pointer;
+  transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+button:hover{ transform:translateY(-1px); box-shadow:0 8px 20px rgba(201,167,94,0.25); }
+
+@media (max-width:720px){
+  .wrap{ grid-template-columns:1fr; }
+  .intro{ border-right:none; border-bottom:1px solid var(--rule); }
+  h1{ font-size:2rem; }
+}
+</style>
+</head>
+<body>
+  <nav>
+    <div class="logo">opti<em>crop</em></div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/findyourcrop" class="active">Find Your Crop</a>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="wrap">
+      <div class="intro">
+        <div class="eyebrow">Soil &amp; Climate Analysis</div>
+        <h1>Predict the Best Crop<br>Based on Given<br>Parameters</h1>
+        <p class="desc">Enter your soil's nutrient and climate readings below.</p>
+      </div>
+      <form action="/predict" method="POST">
+        <div class="grid">
+          <div class="field">
+            <label>Nitrogen <span>kg/ha</span></label>
+            <input type="number" step="any" name="N" placeholder="0–140" required>
+          </div>
+          <div class="field">
+            <label>Phosphorous <span>kg/ha</span></label>
+            <input type="number" step="any" name="P" placeholder="5–145" required>
+          </div>
+          <div class="field">
+            <label>Potassium <span>kg/ha</span></label>
+            <input type="number" step="any" name="K" placeholder="5–205" required>
+          </div>
+          <div class="field">
+            <label>Temperature <span>°C</span></label>
+            <input type="number" step="any" name="temperature" placeholder="8–44" required>
+          </div>
+          <div class="field">
+            <label>Humidity <span>%</span></label>
+            <input type="number" step="any" name="humidity" placeholder="14–100" required>
+          </div>
+          <div class="field">
+            <label>pH Level <span>0–14</span></label>
+            <input type="number" step="any" name="ph" placeholder="3.5–9.9" required>
+          </div>
+          <div class="field full">
+            <label>Rainfall <span>mm</span></label>
+            <input type="number" step="any" name="rainfall" placeholder="20–298" required>
+          </div>
+        </div>
+        <button type="submit">Analyze &amp; Recommend</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
