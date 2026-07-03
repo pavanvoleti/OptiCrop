@@ -1,4 +1,4 @@
-<img width="1354" height="624" alt="image" src="https://github.com/user-attachments/assets/8c5d2db8-c998-4ea7-bce0-fdd79001973e" /># 🌱 OptiCrop – Smart Agriculture Crop Recommendation System
+# 🌱 OptiCrop – Smart Agriculture Crop Recommendation System
 
 OptiCrop is a Machine Learning-based web application that recommends the most suitable crop based on soil nutrients and environmental conditions. The application uses a trained machine learning model to help users identify the best crop for cultivation by providing values such as Nitrogen, Phosphorus, Potassium, temperature, humidity, pH, and rainfall.
 
