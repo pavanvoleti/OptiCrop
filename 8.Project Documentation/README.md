@@ -10,7 +10,6 @@ The documentation includes:
 - Objectives
 - System Requirements
 - Technologies Used
-- Dataset Description
 - Methodology
 - Project Workflow
 - Machine Learning Model
