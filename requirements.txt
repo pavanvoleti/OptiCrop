@@ -1,5 +1,10 @@
-flask
-scikit-learn
 pandas
 numpy
+matplotlib
+seaborn
+scikit-learn
+jupyter
+notebook
+ipywidgets
+flask
 gunicorn
