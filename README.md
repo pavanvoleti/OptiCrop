@@ -4,6 +4,14 @@ OptiCrop is a Machine Learning-based web application that recommends the most su
 
 ---
 
+## 🔗 Live Demo
+
+**[https://opticrop-407a.onrender.com](https://opticrop-407a.onrender.com)**
+
+> Note: Hosted on Render's free tier — the app may take 30–50 seconds to load on first visit after a period of inactivity.
+
+---
+
 ## 📌 Features
 
 - Predicts the most suitable crop based on user inputs.
@@ -92,7 +100,7 @@ cd OptiCrop
 ### Install the required dependencies
 
 ```bash
-pip install flask pandas numpy scikit-learn
+pip install -r requirements.txt
 ```
 
 ### Run the application
